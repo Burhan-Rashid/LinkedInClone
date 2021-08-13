@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Sidebar />
+      {/* <Sidebar />
       <Main />
-      <Widgets />
+      <Widgets /> */}
     </div>
   );
 }
