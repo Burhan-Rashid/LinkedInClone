@@ -1,0 +1,31 @@
+.widgets{
+    display: flex;
+    flex:.2;
+    background-color: white;
+    border-radius: 10px;
+    margin-left:20px;
+    flex-direction: column;
+    padding:20px;
+    height: fit-content;
+}
+.widgets__title{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:gray;
+    margin-bottom: 10px;
+}
+.widgets__list{
+    font-size: .9rem;
+    font-weight: 400;
+    color:gray;
+    padding-left:inherit;
+}
+.widgets__list >li{
+    padding:5px;
+}
+.widgets__list >li:hover{
+    background-color: aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}

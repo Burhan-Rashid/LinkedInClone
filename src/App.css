@@ -1,4 +1,12 @@
 .App {
-  
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(247, 222, 220);
 }
-
+.content{
+  display: flex;
+  margin-left: 100px;
+  margin-top:50px;
+  width:70%;
+  justify-content: center;
+}

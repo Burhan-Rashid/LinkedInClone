@@ -1,0 +1,30 @@
+.main{
+    flex:0.6;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+.main__top{
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+    margin-bottom: 20px;
+}
+.main__topAvatar{
+    display: flex;
+    margin-bottom: 20px;
+  
+}
+.main__Avatar{
+    margin-right: 10px;
+}
+.main__topInput{
+    width: 100%;
+    border-radius: 30px;
+    border:1px solid gray;
+
+}
+.main__topButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
