@@ -1,4 +1,9 @@
 .App {
   display: flex;
+  flex-direction: column;
 }
-
+.content{
+  display: flex;
+  margin-left: 100px;
+  margin-top:50px;
+}
