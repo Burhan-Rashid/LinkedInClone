@@ -11,8 +11,8 @@ function App() {
       <Header />
       <div className="content">
         <Sidebar />
-        {/* <Main />
-      <Widgets /> */}
+        <Main />
+        <Widgets />
       </div>
     </div>
   );
