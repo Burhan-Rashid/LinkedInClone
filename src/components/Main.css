@@ -14,6 +14,9 @@
     margin-bottom: 20px;
   
 }
+.main__topAvatar > form > button{
+    display: none;
+}
 .main__Avatar{
     margin-right: 10px;
 }
@@ -29,4 +32,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.form{
+    display: flex;
+    width: 100%;
 }

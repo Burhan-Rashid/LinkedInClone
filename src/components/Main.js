@@ -9,15 +9,29 @@ import { db } from "../Firebase"
 
 function Main() {
     const [post, setPost] = React.useState("")
+    const [posts, setPosts] = React.useState([])
+
+
+    React.useEffect(() => {
+        db.collection("posts").onSnapshot(snapshot => (
+            setPosts(
+                snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    data: doc.data(),
+                }))
+            )
+        ))
+        console.log(posts[0])
+    }, [])
 
     const handleSubmit = (e) => {
-        if (e.key === "Enter") {
-            db.collection("posts").add({
-                name: "Burhan Rashid",
-                title: "this is a test",
-                message: post
-            })
-        }
+        e.preventDefault();
+        db.collection("posts").add({
+            name: "Burhan Rashid",
+            description: "this is a test",
+            message: post
+        })
+        setPost("");
     }
 
     return (
@@ -25,7 +39,10 @@ function Main() {
             <div className="main__top">
                 <div className="main__topAvatar">
                     <Avatar className="main__Avatar" src="https://media-exp1.licdn.com/dms/image/C4E03AQGAsFbAppKH_A/profile-displayphoto-shrink_200_200/0/1625908476660?e=1632355200&v=beta&t=I6M_uV1plr_jkcsI95FThruYHXgP-eaVintQfaWPB0Q" />
-                    <input className="main__topInput" value={post} onChange={(e) => setPost(e.target.value)} type="text" onKeyPress={handleSubmit} />
+                    <form className="form">
+                        <input className="main__topInput" value={post} onChange={(e) => setPost(e.target.value)} type="text" />
+                        <button type="submit" onClick={handleSubmit} />
+                    </form>
                 </div>
                 <div className="main__topButtons">
                     <MainButton icon={<MdPhoto size={28} />} title="Photo" />
@@ -35,7 +52,11 @@ function Main() {
                 </div>
             </div>
             <div className="main__bottom">
-                <Post />
+                {posts.length > 0 && posts.map(({ id, data: { name, message, description } }) => {
+                    console.log(name);
+                    return <Post key={id} title={name} description={description} message={message} />
+                })}
+
             </div>
         </div>
     )
