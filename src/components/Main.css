@@ -14,6 +14,9 @@
     margin-bottom: 20px;
   
 }
+.main__topAvatar > form > button{
+    display: none;
+}
 .main__Avatar{
     margin-right: 10px;
 }
@@ -21,10 +24,16 @@
     width: 100%;
     border-radius: 30px;
     border:1px solid gray;
+    outline: none;
+    padding:0px 10px;
 
 }
 .main__topButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.form{
+    display: flex;
+    width: 100%;
 }
