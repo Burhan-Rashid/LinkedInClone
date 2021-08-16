@@ -1,0 +1,75 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+  width: 23%;
+  padding: 50px;
+}
+.register__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: gray;
+}
+.form {
+  width: 100%;
+  flex-direction: column;
+}
+.form > input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: none;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.form > button {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background-color: #0073b1;
+  color: white;
+  font-size: 1.1rem;
+}
+.form > button:hover {
+  cursor: pointer;
+  background-color: #015e8f;
+}
+.logo {
+  height: 80px;
+  width: 120px;
+  object-fit: contain;
+}
+.bottomContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.bottomContainer > h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: gray;
+  padding: 10px;
+}
+.bottomContainer > h5:hover {
+  cursor: pointer;
+  background-color: rgb(224, 237, 250);
+  border-radius: 10px;
+}
+.bottomContainer > h6 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: gray;
+}

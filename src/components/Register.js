@@ -51,30 +51,30 @@ function Register() {
     }
 
     return (
-        <div className="register">
+        <div className="mainContainer">
             {registerType ?
-                <div>
-                    <h3>Register</h3>
-                    <form>
+                <div className="register">
+                    <img className="logo" src="/assets/LinkedIn-Logo.png" alt="....logo" />
+                    <form className="form">
                         <input type="text" value={name} placeholder="Full Name" onChange={(e) => setName(e.target.value)} />
                         <input type="text" value={photo} placeholder="Photo Url (optional)" onChange={(e) => setPhoto(e.target.value)} />
                         <input type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         <button type="submit" onClick={handleRegister} >Register</button>
                     </form>
-                    <div>
+                    <div className="bottomContainer">
                         <h6>Already have an account?</h6><h5 onClick={handleType}>Login here</h5>
                     </div>
                 </div>
                 :
-                <div className="login">
-                    <h3>Login</h3>
-                    <form>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <div className="register">
+                    <img className="logo" src="/assets/LinkedIn-Logo.png" alt="....logo" />
+                    <form className="form">
+                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <button type="submit" onClick={handleLogin} > Sign In </button>
                     </form>
-                    <div>
+                    <div className="bottomContainer">
                         <h6>Don't have an account?</h6><h5 onClick={handleType}>Register here</h5>
                     </div>
                 </div>}
