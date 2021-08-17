@@ -1,6 +1,6 @@
 import React from "react";
 import "./Register.css";
-import { auth } from "../Firebase";
+import { auth, db } from "../Firebase";
 import { login } from "../state/userSlice";
 import { useDispatch } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -12,6 +12,7 @@ function Register() {
   const [password, setPassword] = React.useState("");
   const [name, setName] = React.useState("");
   const [photo, setPhoto] = React.useState("");
+  const [headline, setHeadline] = React.useState("");
   const [registerType, setRegisterType] = React.useState(false);
 
   const handleRegister = (e) => {
@@ -25,12 +26,23 @@ function Register() {
             photoURL: photo,
           })
           .then(
+            db.collection("users").doc(res.user.uid).set({
+              uid: res.user.uid,
+              name: name,
+              headline: headline,
+              connections: "0",
+              profileViews: "0",
+              photoUrl: photo,
+            }),
             dispatch(
               login({
-                email: res.user.email,
+                email: email,
                 uid: res.user.uid,
-                displayName: name,
+                name: name,
                 photoUrl: photo,
+                headline: headline,
+                connections: "0",
+                profileViews: "0",
               })
             )
           );
@@ -48,14 +60,24 @@ function Register() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        dispatch(
-          login({
-            email: res.user.email,
-            uid: res.user.uid,
-            displayName: res.user.displayName,
-            photoUrl: res.user.photoURL,
-          })
-        );
+        db.collection("users")
+          .doc(res.user.uid)
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              dispatch(
+                login({
+                  email: doc.data().email,
+                  name: doc.data().name,
+                  uid: doc.data().uid,
+                  headline: doc.data().headline,
+                  photoUrl: doc.data().photoUrl,
+                  connections: doc.data().connections,
+                  profileViews: doc.data().profileViews,
+                })
+              );
+            }
+          });
       })
       .catch((error) => {
         alert(error.message);
@@ -83,6 +105,12 @@ function Register() {
               value={name}
               placeholder="Full Name"
               onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              value={headline}
+              placeholder="Headline"
+              onChange={(e) => setHeadline(e.target.value)}
             />
             <input
               type="text"

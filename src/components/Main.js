@@ -6,10 +6,13 @@ import { MdPhoto, MdVideoLibrary, MdEvent } from "react-icons/md";
 import { RiArticleLine } from "react-icons/ri";
 import Post from "./Post";
 import { db } from "../Firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "../state/userSlice";
 
 function Main() {
   const [post, setPost] = React.useState("");
   const [posts, setPosts] = React.useState([]);
+  const user = useSelector(selectUser);
 
   React.useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) =>
@@ -37,10 +40,9 @@ function Main() {
     <div className="main">
       <div className="main__top">
         <div className="main__topAvatar">
-          <Avatar
-            className="main__Avatar"
-            src="https://media-exp1.licdn.com/dms/image/C4E03AQGAsFbAppKH_A/profile-displayphoto-shrink_200_200/0/1625908476660?e=1632355200&v=beta&t=I6M_uV1plr_jkcsI95FThruYHXgP-eaVintQfaWPB0Q"
-          />
+          <Avatar className="main__Avatar" src={user.photoUrl}>
+            {user.name.charAt(0).toUpperCase()}
+          </Avatar>
           <form className="form">
             <input
               className="main__topInput"

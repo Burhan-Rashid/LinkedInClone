@@ -5,8 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { BiCaretDown } from "react-icons/bi";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { useDispatch } from "react-redux";
-import { logout } from "../state/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../state/userSlice";
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HeaderOption({ icon, title, avatar }) {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,7 +37,9 @@ function HeaderOption({ icon, title, avatar }) {
     <div>
       {avatar ? (
         <div className="headerOption" onClick={handleClick}>
-          <Avatar className={classes.small} />
+          <Avatar className={classes.small}>
+            {user.name.charAt(0).toUpperCase()}
+          </Avatar>
           <div className="avatar__div">
             <h2 className="headerOption__title">{title}</h2>
             <BiCaretDown size={12} />
