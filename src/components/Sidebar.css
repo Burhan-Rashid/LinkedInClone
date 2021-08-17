@@ -1,115 +1,111 @@
-.sidebar{
-    display: flex;
-    flex:0.2;
-    flex-direction: column;
-    text-align: center;
-    height: fit-content;
-    position: sticky;
+.sidebar {
+  display: flex;
+  flex: 0.3;
+  flex-direction: column;
+  text-align: center;
+  height: fit-content;
+  position: sticky;
 }
-.sidebar__top{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-    margin-bottom:20px;
-
+.sidebar__top {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  margin-bottom: 5px;
 }
-.sidebar__top > hr{
-    color:lightslategray;
+.sidebar__top > hr {
+  color: lightslategray;
 }
-.sidebar__topBackground{
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: -50px;
-
+.sidebar__topBackground {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: -50px;
 }
-.sidebar__topAvatarDiv{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    }
-.sidebar__topAvatar{
-    border:2px solid white;
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 50px;
-    
+.sidebar__topAvatarDiv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
-.sidebar__topDescDiv{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+.sidebar__topAvatar {
+  border: 2px solid white;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50px;
 }
-.sidebar__topName{
-    font-size: 24px;
-    font-weight: 600;
-   }
-.sidebar__topDescription{
-    font-size: 1rem;
-    font-weight: 400;
-    color:gray;
+.sidebar__topDescDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  padding: 0px 5px;
 }
-.sidebar__topConnectionsDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; 
-    padding:15px;
-     
+.sidebar__topName {
+  font-size: 24px;
+  font-weight: 600;
 }
-.sidebar__topConnections{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.sidebar__topDescription {
+  font-size: 1rem;
+  font-weight: 400;
+  color: gray;
 }
-.sidebar__topConnections > h3{
-    color:gray;
-    font-weight: 600;
-    font-size: 0.9rem;
+.sidebar__topConnectionsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 15px;
 }
-.sidebar__topConnections > h4{
-    color:cadetblue;
-    font-weight: bold;
-    font-size: 1rem;
+.sidebar__topConnections {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar__topConnections > h3 {
+  color: gray;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.sidebar__topConnections > h4 {
+  color: cadetblue;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-
-.sidebar__bottom{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-    margin-bottom:20px;
-    padding:10px 0px;
-
+.sidebar__bottom {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
 }
-.sidebar__bottomTitle{
-    font-size: 1.2rem;
-    font-weight: 700;
-    color:gray;
-    text-align: left;
-    padding-left: 37px;
+.sidebar__bottomTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: gray;
+  text-align: left;
+  padding: 0px 12px;
 }
-.sidebar__bottomList{
-    list-style-type: none;
-    font-weight: 500;
-    font-size: 1rem;
-    color:gray;
+.sidebar__bottomList {
+  list-style-type: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: gray;
+  padding: inherit;
 }
-.sidebar__bottomList >li{
-    padding:10px 0px;
-    text-align: left;
+.sidebar__bottomList > li {
+  padding: 10px 0px;
+  text-align: left;
 }
-.sidebar__bottomList>li:hover{
-    background-color: aqua;
-    border-radius: 10px;
-    cursor: pointer;
+.sidebar__bottomList > li:hover {
+  background-color: aqua;
+  border-radius: 10px;
+  cursor: pointer;
 }

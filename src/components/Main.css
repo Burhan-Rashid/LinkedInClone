@@ -7,7 +7,7 @@
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .main__topAvatar {
   display: flex;
@@ -35,4 +35,8 @@
 .form {
   display: flex;
   width: 100%;
+}
+.main > hr {
+  margin: 12px 5px;
+  margin-bottom: 10px;
 }
