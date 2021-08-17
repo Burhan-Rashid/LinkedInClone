@@ -75,3 +75,9 @@
   font-weight: 300;
   color: gray;
 }
+.loadingDiv {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
