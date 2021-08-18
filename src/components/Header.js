@@ -16,7 +16,11 @@ function Header() {
         />
         <div className="header__searchDiv">
           <FaSistrix className="header__searchIcon" />
-          <input className="header__searchInput" type="text" />
+          <input
+            className="header__searchInput"
+            type="text"
+            placeholder="Search for jobs, people..."
+          />
         </div>
       </div>
       <div className="header__right">

@@ -8,6 +8,8 @@ import Post from "./Post";
 import { db } from "../Firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../state/userSlice";
+import firebase from "firebase";
+import FlipMove from "react-flip-move";
 
 function Main() {
   const [post, setPost] = React.useState("");
@@ -15,23 +17,26 @@ function Main() {
   const user = useSelector(selectUser);
 
   React.useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    console.log(posts[0]);
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     db.collection("posts").add({
-      name: "Burhan Rashid",
-      description: "this is a test",
+      name: user.name,
+      description: user.headline,
       message: post,
+      uid: user.uid,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setPost("");
   };
@@ -54,26 +59,40 @@ function Main() {
           </form>
         </div>
         <div className="main__topButtons">
-          <MainButton icon={<MdPhoto size={28} />} title="Photo" />
-          <MainButton icon={<MdVideoLibrary size={28} />} title="Video" />
-          <MainButton icon={<MdEvent size={28} />} title="Event" />
-          <MainButton icon={<RiArticleLine size={28} />} title="Article" />
+          <MainButton
+            icon={<MdPhoto size={28} color="#91b9fa" />}
+            title="Photo"
+          />
+          <MainButton
+            icon={<MdVideoLibrary size={28} color="#c2db9e" />}
+            title="Video"
+          />
+          <MainButton
+            icon={<MdEvent size={28} color="#9ab376" />}
+            title="Event"
+          />
+          <MainButton
+            icon={<RiArticleLine size={28} color="#00995c" />}
+            title="Article"
+          />
         </div>
       </div>
       <hr />
       <div className="main__bottom">
-        {posts.length > 0 &&
-          posts.map(({ id, data: { name, message, description } }) => {
-            console.log(name);
-            return (
-              <Post
-                key={id}
-                title={name}
-                description={description}
-                message={message}
-              />
-            );
-          })}
+        <FlipMove>
+          {posts.length > 0 &&
+            posts.map(({ id, data: { name, message, description } }) => {
+              console.log(name);
+              return (
+                <Post
+                  key={id}
+                  title={name}
+                  description={description}
+                  message={message}
+                />
+              );
+            })}
+        </FlipMove>
       </div>
     </div>
   );

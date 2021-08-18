@@ -17,6 +17,12 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    if (email === "" || password === "" || name === "" || headline === "") {
+      return alert("Please fill all the necessary fields!");
+    }
+    if (password.length < 6) {
+      return alert("password should be at least 6 character long!");
+    }
     setLoading(true);
     try {
       auth.createUserWithEmailAndPassword(email, password).then((res) => {
@@ -56,6 +62,9 @@ function Register() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    if (email === "" || password === "") {
+      return alert("Please fill both email and password!");
+    }
     setLoading(true);
     auth
       .signInWithEmailAndPassword(email, password)
