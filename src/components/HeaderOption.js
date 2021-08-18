@@ -7,6 +7,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../state/userSlice";
+import { auth } from "../Firebase";
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -30,7 +31,14 @@ function HeaderOption({ icon, title, avatar }) {
   };
 
   const handleLogout = () => {
-    dispatch(logout());
+    auth
+      .signOut()
+      .then(() => {
+        dispatch(logout());
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (

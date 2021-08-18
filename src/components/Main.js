@@ -27,7 +27,6 @@ function Main() {
           }))
         )
       );
-    console.log(posts[0]);
   }, []);
 
   const handleSubmit = (e) => {

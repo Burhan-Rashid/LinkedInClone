@@ -20,6 +20,9 @@ function Register() {
     if (email === "" || password === "" || name === "" || headline === "") {
       return alert("Please fill all the necessary fields!");
     }
+    if (password.length < 6) {
+      return alert("password should be at least 6 character long!");
+    }
     setLoading(true);
     try {
       auth.createUserWithEmailAndPassword(email, password).then((res) => {
