@@ -2,6 +2,7 @@ import React from "react";
 import "./Register.css";
 import { auth, db } from "../Firebase";
 import { login } from "../state/userSlice";
+import logo1 from "../assets/Linkedin-Logo.png";
 import { useDispatch } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -105,7 +106,7 @@ function Register() {
         <div className="register">
           <img
             className="logo"
-            src="/assets/LinkedIn-Logo.png"
+            src={logo1}
             alt="....logo"
           />
           <form className="form">
@@ -158,7 +159,7 @@ function Register() {
         <div className="register">
           <img
             className="logo"
-            src="/assets/LinkedIn-Logo.png"
+            src={logo1}
             alt="....logo"
           />
           <form className="form">

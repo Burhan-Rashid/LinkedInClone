@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import HeaderOption from "./HeaderOption";
+import logo from "../assets/linkedin.png";
 import { FaSistrix, FaHome } from "react-icons/fa";
 import { MdGroup, MdMessage } from "react-icons/md";
 import { IoBagRemoveSharp, IoNotifications } from "react-icons/io5";
@@ -11,7 +12,7 @@ function Header() {
       <div className="header__left">
         <img
           className="header__icon"
-          src="/assets/linkedin.png"
+          src={logo}
           alt="...icon"
         />
         <div className="header__searchDiv">
