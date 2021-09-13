@@ -1,3 +1,4 @@
+
 .mainContainer {
   display: flex;
   align-items: center;
@@ -13,8 +14,14 @@
   flex-direction: column;
   border-radius: 10px;
   background-color: white;
-  width: 23%;
-  padding: 50px;
+  width: 60%;
+  padding: 30px;
+}
+@media (min-width: 800px){
+  .register {
+    width: 23%;
+    padding: 50px;
+  }
 }
 .register__title {
   font-size: 1.5rem;
