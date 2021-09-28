@@ -18,12 +18,12 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    if (email === "" || password === "" || name === "" || headline === "") {
-      return alert("Please fill all the necessary fields!");
-    }
-    if (password.length < 6) {
-      return alert("password should be at least 6 character long!");
-    }
+    // if (email === "" || password === "" || name === "" || headline === "") {
+    //   return alert("Please fill all the necessary fields!");
+    // }
+    // if (password.length < 6) {
+    //   return alert("password should be at least 6 character long!");
+    // }
     setLoading(true);
     try {
       auth.createUserWithEmailAndPassword(email, password).then((res) => {
@@ -63,9 +63,9 @@ function Register() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
-      return alert("Please fill both email and password!");
-    }
+    // if (email === "" || password === "") {
+    //   return alert("Please fill both email and password!");
+    // }
     setLoading(true);
     auth
       .signInWithEmailAndPassword(email, password)
@@ -109,17 +109,19 @@ function Register() {
             src={logo1}
             alt="....logo"
           />
-          <form className="form">
+          <form className="form" onSubmit={handleRegister}>
             <input
               type="text"
               value={name}
               placeholder="Full Name"
+              required
               onChange={(e) => setName(e.target.value)}
             />
             <input
               type="text"
               value={headline}
               placeholder="Headline"
+              required
               onChange={(e) => setHeadline(e.target.value)}
             />
             <input
@@ -132,12 +134,14 @@ function Register() {
               type="email"
               value={email}
               placeholder="Email"
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               value={password}
               placeholder="Password"
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
             {loading ? (
@@ -145,7 +149,7 @@ function Register() {
                 <CircularProgress />
               </div>
             ) : (
-              <button type="submit" onClick={handleRegister}>
+              <button type="submit" >
                 Register
               </button>
             )}
@@ -162,17 +166,19 @@ function Register() {
             src={logo1}
             alt="....logo"
           />
-          <form className="form">
+          <form className="form" onSubmit={handleLogin}>
             <input
               type="email"
               placeholder="Email"
               value={email}
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
             {loading ? (
@@ -180,7 +186,7 @@ function Register() {
                 <CircularProgress />
               </div>
             ) : (
-              <button type="submit" onClick={handleLogin}>
+              <button type="submit">
                 Sign In
               </button>
             )}
